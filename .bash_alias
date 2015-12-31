@@ -1,0 +1,179 @@
+shopt -s expand_aliases
+
+alias s="ssh"
+
+alias todo="vi ~/TODO"
+
+alias vms='vmstat 1'
+alias dmidecode='sudo dmidecode'
+alias tcpdump="sudo tcpdump"
+alias emerge="sudo emerge"
+alias apt-get="sudo apt-get"
+alias apt-cache="sudo apt-cache"
+alias wondershaper="sudo wondershaper"
+alias iotop="sudo iotop"
+alias iftop="sudo iftop"
+alias fdisk="sudo fdisk"
+alias sysctl="sudo sysctl"
+
+alias adduser="sudo adduser"
+alias groupadd="sudo groupadd"
+
+alias syslog="sudo service syslog-ng"
+alias rsyslog="sudo service rsyslog"
+
+alias docker='sudo docker'
+alias docker-compose='sudo docker-compose'
+alias try='docker run --rm=true -t -i'
+
+alias youtube-dl='youtube-dl -f bestvideo+bestaudio -o "/home/zhengkai/sync/youtube/%(title)s-%(id)s.%(ext)s"'
+
+alias bt="/usr/bin/deluge-console"
+
+alias rm="trash-put"
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias fuck='$(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
+
+alias g='go run'
+
+alias gi='git add --all ./`git rev-parse --show-cdup` && git ci -a'
+alias ro='cd ./`git rev-parse --show-cdup 2>/dev/null`'
+alias gia='gi --amend'
+alias gb='git br'
+alias gd='~/conf/script/git_diff.sh'
+alias hd='~/conf/script/hg_diff.sh'
+alias gdl='gd HEAD~1 HEAD'
+alias gdn='gd --no-index'
+alias gs='git st'
+alias gc='git co'
+alias gm='git merge --no-ff'
+alias gtp='git stash apply'
+alias gra='git rebase --abort'
+alias gclean='git reset --hard && git clean -df'
+
+# 从整个仓库的所有历史里搜索某个关键词
+alias git_all_search='git rev-list --all | xargs git grep -F'
+
+alias d='colordiff -u'
+
+alias ls="ls --color=auto"
+alias ll="ls -lh"
+alias la="ls -lA"
+alias l="ls -CF"
+alias lsd="\ls -l | \grep ^d"
+
+alias free="free -h"
+
+alias fdate="\date +'%Y-%m-%d %H:%M:%S'"
+alias date="date --date='TZ=\"Asia/Shanghai\" now' +'%Y-%m-%d %H:%M:%S'"
+alias timestamp="\date +'%s'"
+
+alias ssh-keygen='ssh-keygen -N "" -b 4096 -t rsa'
+
+alias top="TERM=screen-256color htop"
+alias df="df -h"
+
+alias vimcat="$HOME/.vim/bundle/vimpager/vimcat"
+
+alias du1="sudo du --max-depth=1 -h"
+alias dus="sudo du --max-depth=0 -h"
+
+alias sshsync='rsync --partial -vzrtopg -e ssh'
+
+alias pwgen='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); pwgen -cns $W $L'
+
+alias grep='grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
+alias less='less -r --tabs=4'
+
+alias pss='ps aux | \grep'
+
+alias vimn="vim -N -u NONE"
+
+alias lynx="lynx -display_charset=UTF-8"
+
+function fn_add_user_to_group() {
+
+	# 这个函数存在的意义在于，有些下等 Linux 发行版只有 useradd 没有 adduser
+
+	user=`\id "$1" 2>/dev/null`
+
+	if [[ ! $user =~ ^uid=.* ]]; then
+		echo "user not exists: $1"
+		return;
+	fi
+	echo "add user: $1"
+
+	group=`\grep "^$2" /etc/group`
+	if [ -z "$group" ]; then
+		echo "group not exists: $2"
+		return;
+	fi
+	echo "to group: $2"
+
+	sudo usermod -a -G $2 $1
+}
+alias add_user_to_group=fn_add_user_to_group
+
+alias tail='((L=$LINES-8)); ((L=L>10?L:10)); sudo \tail -n $L'
+alias f='((L=$LINES-3)); ((L=L>10?L:10)); sudo \tail -n $L -f'
+alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; f /tmp/php-error.txt"
+
+alias mocp="~/conf/script/volume/33db.sh; TERM=screen-256color /usr/bin/mocp"
+
+alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
+
+alias service="sudo service"
+alias nginx="service nginx"
+alias mysqld="service mysql"
+alias fpm="service php5-fpm"
+
+alias pip='HOME=/root sudo pip'
+alias easy_install='sudo easy_install'
+alias easy_install3='sudo easy_install3'
+
+alias pl="echo 'show processlist;' | mysql"
+
+alias acl="sudo ~/conf/script/acl.sh"
+alias cleanacl="sudo setfacl -b -R ."
+
+alias set644="(find . -type d -exec sudo chmod 755 {} \;) && (find . -not -type d -exec sudo chmod 644 {} \;)"
+alias set664="(find . -type d -exec sudo chmod 775 {} \;) && (find . -not -type d -exec sudo chmod 664 {} \;)"
+alias set666="(find . -type d -exec sudo chmod 777 {} \;) && (find . -not -type d -exec sudo chmod 666 {} \;)"
+
+alias flushmc="echo 'flush_all' | nc localhost 11211"
+
+alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
+
+alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then ~/conf/script/tmux_default.sh; fi'
+
+alias ms='sudo mongosniff --source NET lo 27017'
+
+ex () {
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)   tar xjf $1   ;;
+			*.tar.gz)    tar xzf $1   ;;
+			*.bz2)       bunzip2 $1   ;;
+			*.rar)       rar x $1     ;;
+			*.gz)        gunzip $1    ;;
+			*.tar)       tar xf $1    ;;
+			*.tbz2)      tar xjf $1   ;;
+			*.tgz)       tar xzf $1   ;;
+			*.zip)       unzip $1     ;;
+			*.Z)         uncompress $1  ;;
+			*.7z)        7z x $1    ;;
+			*)           echo "'$1' cannot be extracted via extract()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
+}
+
+function php_fn() {
+    docker exec -i -t php bash -c 'if [ -d "'$PWD'" ]; then cd "'$PWD'"; else echo "unknown dir"; exit; fi; php '$@
+}

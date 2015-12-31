@@ -1,0 +1,7 @@
+各种配置
+
+git clone https://github.com/zhuzhengyang/config.git
+git clone git@github.com:zhuzhengyang/config.git
+
+before cp ssh/config ~/.ssh/config
+mkdir ~/.tmp

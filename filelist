@@ -1,0 +1,13 @@
+.bash_login
+.tmux.conf
+.curlrc
+.siegerc
+.gitconfig
+.gitattributes
+.inputrc
+.screenrc
+.wgetrc
+.axelrc
+.fonts.conf
+.imwheelrc
+.hgrc

@@ -1,0 +1,12 @@
+.vim/session/*
+.vim/undo/*
+.vim/.netrwhist
+*.swp
+*~
+nohup.out
+
+.moc/cache/*
+.moc/equalizer
+.moc/last_directory
+.moc/softmixer
+.moc/playlist.m3u
