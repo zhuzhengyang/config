@@ -1,0 +1,7 @@
+brew install php54 --with-postgresql
+homebrew/php/php54-igbinary
+homebrew/php/php54-mcrypt
+homebrew/php/php54-memcache
+homebrew/php/php54-mongo
+homebrew/php/php54-redis
+homebrew/php/php54-xdebug
