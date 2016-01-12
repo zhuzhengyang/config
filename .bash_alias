@@ -131,6 +131,7 @@ alias service="sudo service"
 alias nginx="service nginx"
 alias mysqld="service mysql"
 alias fpm="service php5-fpm"
+alias rephp54="lunchy restart php54"
 
 alias pip='HOME=/root sudo pip'
 alias easy_install='sudo easy_install'
