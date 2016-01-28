@@ -14,5 +14,9 @@ Host test
 	User zhengyang.zhu
 
 Host tf
-        HostName 54.245.241.10
+	HostName 54.245.241.10
+	User zhengyang.zhu
+
+Host tb
+        HostName 10.13.0.231
         User zhengyang.zhu
