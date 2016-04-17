@@ -4,7 +4,7 @@
 *.swp
 *~
 nohup.out
-
+.DS_Store
 .moc/cache/*
 .moc/equalizer
 .moc/last_directory
