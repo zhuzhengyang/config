@@ -1,22 +1,46 @@
 Host *
-	ServerAliveCountMax 3
-	ServerAliveInterval 30
-	ExitOnForwardFailure yes
-	Compression yes
-	CompressionLevel 9
-	GSSAPIAuthentication no
-	ControlMaster auto
-	ControlPath ~/.tmp/ssh_mux_%h_%p_%r
-	ControlPersist 4h
+        ServerAliveCountMax 3
+        ServerAliveInterval 30
+        ExitOnForwardFailure yes
+        Compression yes
+        GSSAPIAuthentication no
+        ControlMaster auto
+        ControlPath ~/.tmp/ssh_mux_%h_%p_%r
+        ControlPersist 4h
 
-Host test
-	HostName 50.112.249.175
-	User zhengyang.zhu
-
+Host ffstest
+        HostName 10.0.74.13
+        User centos
+	PreferredAuthentications publickey
+	IdentityFile /Users/zhengyang/.ssh/ffs-testserver.pem
 Host tf
-	HostName 54.245.241.10
-	User zhengyang.zhu
+        HostName 35.163.115.101
+        User zhengyang.zhu
+
+Host php7
+        HostName 35.164.153.70
+        User zhengyang.zhu
 
 Host tb
-        HostName 10.13.0.231
+        HostName 10.13.0.17
         User zhengyang.zhu
+
+Host cntb
+        HostName 192.168.201.2
+        User zhengyang.zhu
+
+Host als
+	HostName als.socialgamenet.com
+	User funplus
+
+Host ffs2
+	HostName 10.0.74.241
+        User zhengyang.zhu
+
+Host ffsmmo
+        HostName 10.0.74.241
+        User zhengyang.zhu
+
+Host ffs-mmo-outer
+        HostName 192.144.132.22
+        User hui.wang
