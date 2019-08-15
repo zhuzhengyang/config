@@ -2,7 +2,7 @@
 for file in ` git status -s|awk '{print $2}'` ;do
 echo $file 
 ret=`php -l $file`g
-if [ "$ret" == *Parse* ]
+if [[ "$ret" == *"Parse"* ]] || [[ "$ret" == *"Fatal"* ]]
 then
 	echo $ret
 	exit
